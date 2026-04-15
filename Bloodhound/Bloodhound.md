@@ -1,6 +1,6 @@
 <div style="width:30%; margin: auto;">
 
-![alt text](image-5.png)
+![alt text](assets/image-5.png)
 
 </div>
 
@@ -96,7 +96,7 @@ RUSTFLAGS="-C target-feature=+crt-static" cargo build --release --target x86_64-
 
 # Utilisation de Bloodhound
 
-![Interface Bloodhound](image.png)
+![Interface Bloodhound](assets/image.png)
 
 Voici l'interface principale de Bloodhound. Il y a en haut à gauche 3 onglets :
 
@@ -146,14 +146,14 @@ Il y a le .exe à exécuter directement sur le Windows, ou le fichier .ps1 qui e
 
 Avec les commandes précédentes, on a obtenu des fichiers JSON, que l'on peut désormais upload dans l'interface de Bloodhound.
 
-![alt text](image-1.png)
-![alt text](image-2.png)
+![alt text](assets/image-1.png)
+![alt text](assets/image-2.png)
 
 Dans l'exemple ici, on va étudier le dataset officiel fourni par Bloodhound. Ces données ont été générées via **Sharphound**.
 
 ### Nœuds et recherche de nœuds
 
-![alt text](image-6.png)
+![alt text](assets/image-6.png)
 
 Un nœud est un élément du réseau de l'Active Directory. Ça peut être un utilisateur, un groupe, un ordinateur... Ici, on recherche l'utilisateur *Alice*, et on obtient les informations associées au compte, comme par exemple :
 
@@ -169,11 +169,11 @@ Pour les autres types de nœuds, les catégories s'adaptent à ce qui correspond
 
 Bloodhound permet de marquer des nœuds, permettant de garder trace des nœuds auxquels on a accès. Pour ça, il faut faire un clic-droit sur le nœud correspondant, puis cliquer sur *Add to Owned*. Cela permet à Bloodhound de se concentrer sur ces nœuds marqués et de proposer des chemins de *privilege escalation*.
 
-![alt text](image-7.png)
+![alt text](assets/image-7.png)
 
 Entre chaque nœud du graphe est noté la relation qu'il y a entre les deux. Cette relation est en réalité un chemin (via un exploit, une permission donnée...), qui est expliquée lorsque l'on clique sur la relation en question.
 
-![alt text](image-9.png)
+![alt text](assets/image-9.png)
 
 ### Pathfinding
 
@@ -181,13 +181,13 @@ Pour connaître chaque relation et chaque nœud entre deux nœuds connus (un dé
 
 On y rentre le nœud de départ (Ici Alice), puis le nœud d'arrivée (ici Bob), puis Bloodhound nous trace le chemin à parcourir et les différents nœuds à s'emparer avant de récupérer notre objectif.
 
-![alt text](image-10.png)
+![alt text](assets/image-10.png)
 
 ### Requêtes Cypher
 
 Dans l'onglet Cypher en haut à gauche, il y a beaucoup de requêtes déjà préfaites pour chercher efficacement des nœeuds à interêt dans le graphe. Par exemple, la commande préfaite *All Domain Admins* permet de lister et de visualiser tous les admins du réseau.
 
-![alt text](image-8.png)
+![alt text](assets/image-8.png)
 
 D'autres requêtes sont listées, et pour en avoir encore plus, voire aux [liens utiles en bas de page](#liens-utiles).
 
