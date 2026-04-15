@@ -16,11 +16,14 @@ sudo sed -i "s/\"neo4j\":\"neo4j\"/\"neo4j\":\"$neo4jmdp\"/" /etc/bhapi/bhapi.js
 # Install rustup and Cargo for Linux
 curl https://sh.rustup.rs -sSf | sh
 
-# Add Windows deps
-rustup install stable-x86_64-pc-windows-gnu
-rustup target add x86_64-pc-windows-gnu
+# Add Linux deps
+rustup install stable-x86_64-unknown-linux-gnu
+rustup target add x86_64-unknown-linux-gnu
 
-# Static compilation for Windows
+# Static compilation for Linux
 git clone https://github.com/OPENCYBER-FR/RustHound
 cd RustHound
-RUSTFLAGS="-C target-feature=+crt-static" cargo build --release --target x86_64-pc-windows-gnu
+CFLAGS="-lrt";LDFLAGS="-lrt";RUSTFLAGS='-C target-feature=+crt-static';cargo build --release --target x86_64-unknown-linux-gnu
+
+# Déplacement du chemin vers un chemin du PATH
+sudo cp target/x86_64-unknown-linux-gnu/release/rusthound /usr/local/bin
